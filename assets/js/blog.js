@@ -109,9 +109,12 @@ function loadPost(index) {
     for (i = 0; i < body.length; i++) {
         if (body[i].startsWith('header:')) {
             bodyHTML = bodyHTML + `<h1 class="blog_heading">${body[i].replace('header:', '')}</h1>`
-        } else if (body[i].startsWith('widget:email')) {
-            bodyHTML = bodyHTML +
-                `
+        } else if (body[i].startsWith('widget:')) {
+            var widgetName = body[i].replace('widget:', '')
+
+            if (widgetName == 'email') {
+                bodyHTML = bodyHTML +
+                    `
                 <div class="blog_widget_email">
                     <h1 class="blog_heading">Get notified about new posts</h1>
                     <div id="mc_embed_signup">
@@ -140,6 +143,9 @@ function loadPost(index) {
                         </form>
                     </div>
                 </div>`
+            } else if (widgetName == 'seperator') {
+                bodyHTML = bodyHTML + `<div class="center-text">• • •</div>`
+            }
         } else if (body[i].startsWith('subhead:')) {
             bodyHTML = bodyHTML + `<h3 class="blog_subheading">${body[i].replace('subhead:', '')}</h3>`
 
@@ -165,6 +171,27 @@ function loadPost(index) {
             listHTML = listHTML + `</ul>`
 
             bodyHTML = bodyHTML + listHTML
+        } else if (body[i].startsWith('code:')) {
+            const codeIndex = Number(body[i].replace('code:', ''))
+
+            const code = article.codes[codeIndex].code
+
+            var codeHTML = `<div class="blog_code">`
+
+            for (j = 0; j < code.length; j++) {
+                codeHTML = codeHTML + `${code[j]}
+                `
+            }
+
+            codeHTML = codeHTML + `
+            </div>`
+
+            bodyHTML = bodyHTML + codeHTML
+        } else if (body[i].startsWith('photo:')) {
+            const photoIndex = Number(body[i].replace('photo:', ''))
+
+
+            bodyHTML = bodyHTML + `<img class="blog_image" src="/photos/${article.photos[photoIndex]}">`
         } else {
             var goodParagraph = body[i].replace(/\[(.*?)\]\((.*?)\)/gim, "<a href='$2' target='_blank'>$1</a>").replace(/`([^`]+)`/g, '<code>$1</code>')
 
