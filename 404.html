@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Alec Wilson</title>
+
+    <!-- Meta Description -->
+    <meta name="description"
+        content="Hey! I am a self taught developer and designer. Outside of programming and design, I love skiing.">
+    <!-- Recommended favicon format -->
+    <link rel="icon" type="image/png" href="https://alecw.net/assets/img/favicon.png">
+    <!-- Apple Touch Icon (at least 200x200px) -->
+    <link rel="apple-touch-icon" href="https://alecw.net/assets/img/favicon.png">
+    <!-- To run web application in full-screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Status Bar Style (see Supported Meta Tags below for available values) -->
+    <!-- Has no effect unless you have the previous meta tag -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- Helps prevent duplicate content issues -->
+    <link rel="canonical" href="https://blog.alecw.net">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="@mrmemrdev" />
+    <!-- Facebook Open Graph -->
+    <meta property="og:url" content="https://blog.alecw.net" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Blog | Alec Wilson" />
+    <meta property="og:description" content="How much does culture influence creative thinking?" />
+    <meta property="og:image" content="https://alecw.net/assets/img/computer.png" />
+
+    <link rel="stylesheet" href="https://alecw.net/assets/css/flexboxgrid.min.css">
+    <link rel="stylesheet" href="https://alecw.net/assets/css/index.css">
+    <link rel="stylesheet" href="https://alecw.net/assets/css/index.css" id="css">
+    <link rel="stylesheet" href="https://alecw.net/assets/css/LineIcons.css">
+    <link rel="stylesheet" href="https://alecw.net/assets/css/dark_graph.css">
+    <link rel="stylesheet" href="https://alecw.net/assets/css/dark_graph.css" id="graph">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/default.min.css">
+    <link rel="stylesheet" href="/assets/css/blog.css">
+    <link rel="stylesheet" href="/assets/css/blog.css" id="blog_css">
+    <link rel="stylesheet" href="/assets/css/email_form.css">
+    <link rel="stylesheet" href="/assets/css/email_form.css" id="email_css">
+</head>
+
+<body>
+    <div id="pull-chain" class="swing-chain">
+        <div class="chain"></div>
+        <div class="handle"></div>
+    </div>
+    <div id="main">
+        <div id="posts">
+            <h1 class="blog_title">Posts</h1>
+            <p class="blog_date">Here are all the posts I have made, pinned first, then by date (newest first)</p>
+            <div id="post_previews">
+            </div>
+        </div>
+        <div id="back_button" onclick="home()" class="hidden">
+            <p class="home_button wide-text align-left lighter">&lt; Go Back Home</p><br>
+        </div>
+        <article id="blog" class="hidden">
+            <img class="blog_image" id="blog_image" src="/photos/dragonfly.jpg">
+            <h1 class="blog_title" id="blog_title">Google's Toxic Relationship with China and Project Dragonfly</h1>
+            <h1 id="fake_title"></h1>
+            <p class="blog_date wide-text align-left lighter" id="blog_date">January 20th, 2021</p>
+            <div id="blog_body">
+            </div>
+            <h1>Tags</h1>
+            <p class="wide-text align-lefttt lighter pod-outer" id="tag_list">
+            </p>
+        </article>
+    </div>
+    <!-- Cloudflare Web Analytics -->
+    <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon="{'token': '12b4da671eee49b4b12820f3f0b9f19e'}"></script>
+    <!-- End Cloudflare Web Analytics -->
+    <!-- github graph embed -->
+    <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>
+    <script src="/assets/js/blog.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HCHE52NB4Y"></script>
+    <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+    <script type='text/javascript'>
+        (function ($) {
+            window.fnames = new Array();
+            window.ftypes = new Array();
+            fnames[0] = 'EMAIL';
+            ftypes[0] = 'email';
+        }(jQuery));
+        var $mcj = jQuery.noConflict(true);
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-HCHE52NB4Y');
+    </script>
+</body>
+
+</html>
