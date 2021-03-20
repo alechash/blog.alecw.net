@@ -179,7 +179,7 @@ function loadPost(index) {
             var codeHTML = `<div class="blog_code">`
 
             for (j = 0; j < code.length; j++) {
-                codeHTML = codeHTML + `${code[j]}
+                codeHTML = codeHTML + `${code[j].replace(/ /g, '&nbsp;')}
                 `
             }
 
