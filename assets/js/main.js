@@ -2,7 +2,7 @@ var pullChain = document.getElementById("pull-chain");
 var css = document.getElementById("css");
 var blog = document.getElementById("blog_css");
 var email = document.getElementById("email_css");
-var toggled = false
+var toggled = true
 pullChain.addEventListener("click", function () {
     startTimer();
 }, false);

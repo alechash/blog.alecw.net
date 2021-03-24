@@ -1,11 +1,14 @@
 var articlesJSON
+var collectionJSON
 
 fetch('/blog.json')
     .then(res => res.json())
     .then((out) => {
         const articles = out[0].articles
+        const collections = out[0].collections
 
         articlesJSON = articles
+        collectionJSON = collections
 
         loadArticles(articles)
     }).catch(err => console.error(err));
@@ -37,7 +40,42 @@ function scroller() {
     }
 }
 
+function loadCollections() {
+    collections = collectionJSON
+
+    // alert(collections)
+
+    var html = ''
+
+    for (i = 0; i < collections.length; i++) {
+        var linkHtml = ''
+        var collection = collectionJSON[i]
+
+        for (j = 0; j < collection.articles.length; j++) {
+            for (k = 0; k < articlesJSON.length; k++) {
+                if (articlesJSON[k].id == collection.articles[j]) {
+                    linkHtml = linkHtml + `
+                    <p onclick="loadPost(${k})">${articlesJSON[k].title}</p>
+                    `
+                }
+            }
+        }
+
+        html = html + `
+        <div>
+            <h2 class="collection_preview_title">#${i+1}: ${collections[i].name}</h2>
+            <div class="collection_preview_list">
+            ${linkHtml}
+            </div>
+        </div>`
+    }
+
+    document.getElementById('collection_preview').innerHTML = html
+}
+
 function loadArticles(articles) {
+    loadCollections()
+
     var html = ''
 
     for (i = 0; i < articles.length; i++) {
@@ -52,10 +90,14 @@ function loadArticles(articles) {
         var photoHTML = ''
         if (articles[i].photo != null) {
             photoHTML = `
-                    <img class="blog_preview_image" src="/photos/${articles[i].photo}">`
+                <span class="blog_preview_image_container">
+                    <img class="blog_preview_image" src="/photos/${articles[i].photo}">
+                </span>`
         } else {
             photoHTML = `
-                    <img class="blog_preview_image" src="/photos/non.png">`
+                <span class="blog_preview_image_container">
+                    <img class="blog_preview_image" src="/photos/non.png">
+                </span>`
         }
 
         var tagsHTML = ''
@@ -66,10 +108,10 @@ function loadArticles(articles) {
         }
 
         html = html + `
-            <div class="post_preview" onclick="loadPost(${i})">
+            <div class="post_preview">
                 <h3 class="blog_preview_title">
                     ${photoHTML}
-                    <span class="blog_preview_title_span">
+                    <span class="blog_preview_title_span" onclick="loadPost(${i})">
                     ${articles[i].title}
                     </span><br>
                     <span class="blog_preview_date">
@@ -95,6 +137,8 @@ function loadPost(index) {
     var article = articlesJSON[index]
     var body = article.body
     var tags = article.tags
+
+    document.getElementById('blog_share').setAttribute('data-clipboard-text', 'https://blog.alecw.net/?articleId=' + article.id)
 
     document.getElementById('blog_title').innerText = article.title
     document.getElementById('blog_date').innerText = article.date
@@ -214,6 +258,13 @@ function loadPost(index) {
     document.querySelectorAll('.blog_code').forEach(block => {
         // then highlight each
         hljs.highlightBlock(block);
+    });
+
+    new ClipboardJS('.clipped', {
+        target: function (trigger) {
+            alert("Copied to clipboard!")
+            return trigger.nextElementSibling;
+        }
     });
 }
 

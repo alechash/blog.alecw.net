@@ -15,3 +15,7 @@ code {
     background: rgb(230, 230, 230);
     color: rgb(21, 21, 21);
 }
+
+.all_post_previews {
+    border-right: 1px black solid;
+}
