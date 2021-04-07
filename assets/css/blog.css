@@ -155,15 +155,19 @@ code {
     margin-bottom: 3px;
 }
 
-.collection_preview_list p:before {
+.collection_preview_list a:before {
     margin-left: 25px;
     content: " ";
 }
 
-.collection_preview_list p {
+.collection_preview_list a {
     color: gray;
     cursor: pointer;
     text-decoration: underline;
+}
+
+.collection_preview_title {
+    margin-bottom: 0;
 }
 
 @media screen and (max-width: 680px) {
@@ -178,4 +182,15 @@ code {
         width: 90vw;
         right: 0;
     }
+}
+
+@media screen and (min-width: 680px) {
+    .all_post_previews {
+        border-right: 1px transparent solid;
+    }
+}
+
+.no_a {
+    color: white;
+    text-decoration: inherit;
 }

@@ -11,6 +11,7 @@ fetch('/blog.json')
         collectionJSON = collections
 
         loadArticles(articles)
+        loadFromQuery(articles)
     }).catch(err => console.error(err));
 
 document.querySelectorAll('.blog_code').forEach(block => {
@@ -55,7 +56,7 @@ function loadCollections() {
             for (k = 0; k < articlesJSON.length; k++) {
                 if (articlesJSON[k].id == collection.articles[j]) {
                     linkHtml = linkHtml + `
-                    <p onclick="loadPost(${k})">${articlesJSON[k].title}</p>
+                    <br><a href="/?articleId=${articlesJSON[k].id}" class="no_a">${articlesJSON[k].title}</a>
                     `
                 }
             }
@@ -111,9 +112,9 @@ function loadArticles(articles) {
             <div class="post_preview">
                 <h3 class="blog_preview_title">
                     ${photoHTML}
-                    <span class="blog_preview_title_span" onclick="loadPost(${i})">
+                    <a class="blog_preview_title_span no_a" href="/?articleId=${articles[i].id}">
                     ${articles[i].title}
-                    </span><br>
+                    </a><br>
                     <span class="blog_preview_date">
                         ${articles[i].date}
                     </span>
@@ -126,6 +127,25 @@ function loadArticles(articles) {
     }
 
     document.getElementById('post_previews').innerHTML = html
+}
+
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+function loadFromQuery(articles) {
+    const id = getParameterByName('articleId');
+
+    for (i = 0; i < articles.length; i++) {
+        if (articles[i].id.toString() == id) {
+            loadPost(i)
+        }
+    }
 }
 
 function loadPost(index) {
@@ -235,7 +255,7 @@ function loadPost(index) {
             const photoIndex = Number(body[i].replace('photo:', ''))
 
 
-            bodyHTML = bodyHTML + `<img class="blog_image" src="/photos/${article.photos[photoIndex]}">`
+            bodyHTML = bodyHTML + `<img class="blog_image" src="/photos/${article.photos[photoIndex].fileName}">`
         } else {
             var goodParagraph = body[i].replace(/\[(.*?)\]\((.*?)\)/gim, "<a href='$2' target='_blank'>$1</a>").replace(/`([^`]+)`/g, '<code>$1</code>')
 

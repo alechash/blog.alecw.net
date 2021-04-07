@@ -19,3 +19,14 @@ code {
 .all_post_previews {
     border-right: 1px black solid;
 }
+
+.no_a {
+    color: black;
+    text-decoration: inherit;
+}
+
+@media screen and (max-width: 680px) {
+    .all_post_previews {
+        border-right: 1px transparent solid;
+    }
+}
