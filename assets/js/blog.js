@@ -64,7 +64,7 @@ function loadCollections() {
 
         html = html + `
         <div>
-            <h2 class="collection_preview_title">#${i+1}: ${collections[i].name}</h2>
+            <h2 class="collection_preview_title">#${i+1} ${collections[i].name}</h2>
             <div class="collection_preview_list">
             ${linkHtml}
             </div>
