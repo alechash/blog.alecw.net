@@ -1,6 +1,6 @@
 ---
 layout: post
-category: digtal privacy
+category: privacy
 title: How people view FAANG vs. How People Should View Them
 tags: seinfeld, festivus, holiday, celebrate
 email: true

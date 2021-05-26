@@ -2,6 +2,13 @@
 # https://github.com/riggraz/no-style-please#customize-the-menu
 
 entries:
+  - title: me
+    entries:
+      - title: <a href="feed.xml">rss</a>, <a href="/archive">archive</a>
+      - title: <a href="/about">about</a>, <a href="https://github.com/alechash">github</a>, <a href="mailto:jude@alecw.net">email</a>
+      - title: alecw.net
+        url: https://alecw.net
+
   - title: latest posts
     post_list:
       limit: 10
@@ -9,15 +16,33 @@ entries:
       show_more_text: See archive...
       show_more_url: archive.html
 
-  - title: other
+  - title: collections
     entries:
-      - title: rss
-        url: feed.xml
-      - title: archive
-        url: archive
-      - title: about
-        url: about
-      - title: github
-        url: https://github.com/alechash
-      - title: alecw.net
-        url: https://alecw.net
+      - title: privacy
+        post_list:
+          category: privacy
+          limit: 1
+          show_more: true
+          show_more_text: See more posts...
+          show_more_url: archives/privacy.html
+      - title: tutorials
+        post_list:
+          category: tutorials
+          limit: 1
+          show_more: true
+          show_more_text: See more posts...
+          show_more_url: archives/tutorials.html
+      - title: ideas
+        post_list:
+          category: ideas
+          limit: 1
+          show_more: true
+          show_more_text: See more posts...
+          show_more_url: archives/ideas.html
+      - title: statements
+        post_list:
+          category: statements
+          limit: 1
+          show_more: true
+          show_more_text: See more posts...
+          show_more_url: archives/statements.html
