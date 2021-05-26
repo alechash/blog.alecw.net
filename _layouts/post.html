@@ -1,0 +1,50 @@
+---
+layout: default
+---
+
+{%-include back_link.html-%}
+
+<article>
+  <p class="post-meta">
+    <time datetime="{{ page.date }}">{{ page.date | date: site.theme_config.date_format }}</time>
+  </p>
+
+  <h1>{{ page.title }}
+    {%- if page.archived -%}
+    <span class="archived">ARCHIVED</span>
+    {%- endif -%}</h1>
+
+  {{ content }}
+
+  {%- if page.email -%}
+  <hr>
+  <h1>Get notified about new posts</h1>
+  <div id="mc_embed_signup">
+    <form action="https://alecw.us7.list-manage.com/subscribe/post?u=90a98fc71fb460cf3977cddfa&amp;id=6eb40130f5"
+      method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank"
+      novalidate="">
+      <div id="mc_embed_signup_scroll">
+
+        <div class="mc-field-group">
+          <label for="mce-EMAIL" class="odin">Email Address <span class="text-red">*</span>
+          </label><br>
+          <input type="email" value="" name="EMAIL" class="required email width-full" id="mce-EMAIL"
+            placeholder="your@email.com">
+        </div>
+        <div id="mce-responses" class="clear">
+          <div class="response" id="mce-error-response" style="display:none"></div>
+          <div class="response" id="mce-success-response" style="display:none"></div>
+        </div>
+        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+            name="b_90a98fc71fb460cf3977cddfa_6eb40130f5" tabindex="-1" value=""></div>
+        <div class="pod-outer">
+          <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
+              class="button pod"></div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <hr>
+  {%- endif -%}</h1>
+
+</article>
