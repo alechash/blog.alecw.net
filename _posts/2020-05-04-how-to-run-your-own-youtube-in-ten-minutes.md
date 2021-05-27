@@ -5,6 +5,7 @@ title: How To Run Your Own YouTube in Ten Minutes
 tags: command-line, nodejs, express, video, media, nodetube, newtube, youtube, tutorial
 archived: true
 email: true
+show_more: true
 ---
 
 ![nodetube](/assets/photos/shareme.png)

@@ -4,6 +4,7 @@ category: ideas
 title: What About a Community Driven Search Engine?
 tags: cryptocurrency, web-development, search, open-source
 email: true
+show_more: true
 ---
 
 As we all know, open-source and community-driven projects are starting to gain traction around the internet. The decentralized idea of the internet is also starting to happen and crypto prices are at an all time high. So why doesn’t a decentralized or community driven search engine exist yet?

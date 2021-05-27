@@ -7,9 +7,10 @@
     <div class="w">
       {{ content }}
 
+      {%- if page.layout != 'post' -%}
       <hr data-content=" stats ">
-      <div id="goat" class="goatie">
-      </div>
+      <p class="goatie">visits: <span id="goat">0</span></p>
+      {%- endif -%}
     </div>
   </main>
 

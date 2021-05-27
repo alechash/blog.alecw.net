@@ -4,6 +4,7 @@ category: tutorials
 title: PGP Cheatsheet -- How to For macOS
 tags: command-line, cli, pgp, gpg, encryption, signing
 email: true
+show_more: true
 ---
 
 ![pgp](/assets/photos/pgp.jpg)

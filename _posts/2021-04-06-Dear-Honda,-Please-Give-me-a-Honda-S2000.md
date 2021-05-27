@@ -4,6 +4,7 @@ category: ideas
 title: dear honda, please send me an s2000
 tags: car, honda, s2000, track car, track, racing, ap1, ap2, ap3
 email: true
+show_more: true
 ---
 
 ![car](/assets/photos/s2000_1.jpg)

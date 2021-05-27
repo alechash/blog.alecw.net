@@ -4,6 +4,7 @@ category: statements
 title: why i hate phones -- as a programmer
 tags: phone, programmer, hate, opinion, why_i_hate_phones
 email: true
+show_more: true
 ---
 
 ![phone](/assets/photos/phone.jpeg)

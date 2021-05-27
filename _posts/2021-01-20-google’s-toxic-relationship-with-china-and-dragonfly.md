@@ -4,6 +4,7 @@ category: statements
 title: Google’s Toxic Relationship With China And Dragonfly
 tags: google, chrome, tensorflow, dragonfly, china, search-engine
 email: true
+show_more: true
 ---
 
 ![dragonfly](/assets/photos/dragonfly.jpg)

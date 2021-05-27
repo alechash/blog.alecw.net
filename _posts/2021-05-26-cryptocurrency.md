@@ -4,6 +4,7 @@ category: satire
 title: cryptocurrency
 tags: crypto, cryptocurrency, coins, tokens, dogecoin, bitcoin, ethereum
 email: true
+show_more: true
 ---
 
 ![crypto](/assets/photos/cryptocurrency.jpeg)

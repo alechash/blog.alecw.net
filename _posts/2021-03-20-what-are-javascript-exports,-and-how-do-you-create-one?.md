@@ -4,6 +4,7 @@ category: tutorials
 title: What Are Javascript Exports, And How Do You Create One?
 tags: modules, exports, module-exports, javascript, nodejs, module
 email: true
+show_more: true
 ---
 
 ![exports](/assets/photos/exports.png)

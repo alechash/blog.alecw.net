@@ -18,14 +18,19 @@ layout: default
 
   {%-assign tags = page.tags-%}
 
-  <hr data-content=" tags ">
+  <hr data-content=" tags, stats & more ">
 
   {%-for tag in tags-%}
   <span class="tag" style="display: inline-block;">{{ tag | replace: ',', '' }}</span>
   {%-endfor-%}
+  {%- if page.show_more -%}
+  <p>visits: <span id="goat">0</span></p>
+  <p>similar posts:</p>
+  {%-include post_list.html category=page.category-%}
+  {%- endif -%}
 
   {%- if page.email -%}
-  <hr data-content=" email signup ">
+  <hr data-content=" email ">
   <h1>Get notified about new posts</h1>
   <div id="mc_embed_signup">
     <form action="https://alecw.us7.list-manage.com/subscribe/post?u=90a98fc71fb460cf3977cddfa&amp;id=6eb40130f5"
