@@ -15,9 +15,16 @@
 }
 
 .text-red {
-    color: rgb(0, 255, 255) !important;
+    color: red !important;
 }
 
 .width-full {
     width: 100%;
+}
+
+.tag {
+    background-color: blue;
+    padding: 2px 5px; 
+    margin: 2px 5px;
+    color: white;
 }

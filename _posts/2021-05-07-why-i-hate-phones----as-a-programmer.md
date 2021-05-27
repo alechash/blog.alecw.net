@@ -2,7 +2,7 @@
 layout: post
 category: statements
 title: why i hate phones -- as a programmer
-tags: phone, programmer, hate, opinion, why i hate phones
+tags: phone, programmer, hate, opinion, why_i_hate_phones
 email: true
 ---
 

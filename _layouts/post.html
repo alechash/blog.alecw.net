@@ -16,8 +16,16 @@ layout: default
 
   {{ content }}
 
+  {%-assign tags = page.tags-%}
+
+  <hr data-content=" tags ">
+
+  {%-for tag in tags-%}
+  <span class="tag" style="display: inline-block;">{{ tag | replace: ',', '' }}</span>
+  {%-endfor-%}
+
   {%- if page.email -%}
-  <hr>
+  <hr data-content=" email signup ">
   <h1>Get notified about new posts</h1>
   <div id="mc_embed_signup">
     <form action="https://alecw.us7.list-manage.com/subscribe/post?u=90a98fc71fb460cf3977cddfa&amp;id=6eb40130f5"
@@ -44,7 +52,6 @@ layout: default
       </div>
     </form>
   </div>
-  <hr>
-  {%- endif -%}</h1>
+  {%- endif -%}
 
 </article>
