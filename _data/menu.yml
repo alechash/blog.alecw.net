@@ -24,6 +24,13 @@ entries:
           show_more: true
           show_more_text: See more posts...
           show_more_url: archives/privacy.html
+      - title: satire
+        post_list:
+          category: satire
+          limit: 1
+          show_more: true
+          show_more_text: See more posts...
+          show_more_url: archives/satire.html
       - title: tutorials
         post_list:
           category: tutorials
