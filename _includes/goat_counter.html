@@ -1,5 +1,16 @@
-<script data-goatcounter="https://{{ site.goat_counter }}.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
+<script data-goatcounter="https://{{ site.goat_counter }}.goatcounter.com/count" async src="//gc.zgo.at/count.js">
+</script>
+
+<script>
+  var t = setInterval(function () {
+    if (window.goatcounter && window.goatcounter.visit_count) {
+      clearInterval(t)
+      window.goatcounter.visit_count({
+        append: '#goat'
+      })
+    }
+  }, 100)
+</script>
 
 <noscript>
   <img src="https://{{ site.goat_counter }}.goatcounter.com/count?p=/test-img">
