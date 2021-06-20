@@ -5,9 +5,8 @@ title: I am now celebrating Festivus.
 tags: seinfeld, festivus, holiday, celebrate
 email: true
 show_more: true
+image: /assets/photos/festivus.jpeg
 ---
-
-![festivus](/assets/photos/festivus.jpeg)
 
 # What is Festivus?
 

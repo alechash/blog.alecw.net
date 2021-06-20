@@ -5,9 +5,8 @@ title: Google’s Toxic Relationship With China And Dragonfly
 tags: google, chrome, tensorflow, dragonfly, china, search-engine
 email: true
 show_more: true
+image: /assets/photos/dragonfly.jpg
 ---
-
-![dragonfly](/assets/photos/dragonfly.jpg)
 
 Note, we won't actually talk about Netflix in this because at the moment, they aren't nearly as powerful as any of the other companies or in as many markets as the others.
 

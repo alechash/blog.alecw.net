@@ -2,61 +2,111 @@
 layout: default
 ---
 
-{%-include back_link.html-%}
+<style>
+	html, address,
+	blockquote,
+	body, dd, div,
+	dl, dt, fieldset, form,
+	frame, frameset,
+	h1, h2, h3, h4,
+	h5, h6, noframes,
+	ol, p, ul, center,
+	dir, hr, menu, pre   { display: block; unicode-bidi: embed }
+	li              { display: list-item }
+	head            { display: none }
+	table           { display: table }
+	tr              { display: table-row }
+	thead           { display: table-header-group }
+	tbody           { display: table-row-group }
+	tfoot           { display: table-footer-group }
+	col             { display: table-column }
+	colgroup        { display: table-column-group }
+	td, th          { display: table-cell }
+	caption         { display: table-caption }
+	th              { font-weight: bolder; text-align: center }
+	caption         { text-align: center }
+	h1              { font-size: 2em }
+	h2              { font-size: 1.5em }
+	h3              { font-size: 1.17em }
+	h4, p,
+	blockquote, ul,
+	fieldset, form,
+	ol, dl, dir,
+	menu            { margin: 1.12em 0 }
+	h5              { font-size: .83em }
+	h6              { font-size: .75em }
+	h1, h2, h3, h4,
+	h5, h6, b,
+	strong          { font-weight: bolder }
+	blockquote      { margin-left: 40px; margin-right: 40px }
+	i, cite, em,
+	var, address    { font-style: italic }
+	pre, tt, code,
+	kbd, samp       { font-family: monospace }
+	pre             { white-space: pre }
+	button, textarea,
+	input, select   { display: inline-block }
+	big             { font-size: 1.17em }
+	small, sub, sup { font-size: .83em }
+	sub             { vertical-align: sub }
+	sup             { vertical-align: super }
+	table           { border-spacing: 2px; }
+	thead, tbody,
+	tfoot           { vertical-align: middle }
+	td, th, tr      { vertical-align: inherit }
+	s, strike, del  { text-decoration: line-through }
+	ol, ul, dir,
+	menu, dd        { margin-left: 40px }
+	ol              { list-style-type: decimal }
+	ol ul, ul ol,
+	ul ul, ol ol    { margin-top: 0; margin-bottom: 0 }
+	u, ins          { text-decoration: underline }
+	br:before       { content: "\A"; white-space: pre-line }
+	center          { text-align: center }
 
-<article>
-  <p class="post-meta">
-    <time datetime="{{ page.date }}">{{ page.date | date: site.theme_config.date_format }}</time>
-  </p>
+	/* Begin bidirectionality settings (do not change) */
+	BDO[DIR="ltr"]  { direction: ltr; unicode-bidi: bidi-override }
+	BDO[DIR="rtl"]  { direction: rtl; unicode-bidi: bidi-override }
 
-  <h1>{{ page.title }}
-    {%- if page.archived -%}
-    <span class="archived">ARCHIVED</span>
-    {%- endif -%}</h1>
+	*[DIR="ltr"]    { direction: ltr; unicode-bidi: embed }
+	*[DIR="rtl"]    { direction: rtl; unicode-bidi: embed }
 
-  {{ content }}
+	@media print {
+	  h1            { page-break-before: always }
+	  h1, h2, h3,
+	  h4, h5, h6    { page-break-after: avoid }
+	  ul, ol, dl    { page-break-before: avoid }
+	}
 
-  {%-assign tags = page.tags-%}
+	hr { padding:50px; padding-top: 15px; font-weight: bold; font-size: 20px }
 
-  <hr data-content=" tags, stats & more ">
+	pre { background: #262626; overflow: scroll; padding: 10px }
+</style>
 
-  {%-for tag in tags-%}
-  <span class="tag" style="display: inline-block;">{{ tag | replace: ',', '' }}</span>
-  {%-endfor-%}
-  {%- if page.show_more -%}
-  <p>visits: <span id="goat">0</span></p>
-  <p>similar posts:</p>
-  {%-include post_list.html category=page.category-%}
-  {%- endif -%}
+<div class="w-screen text-gray-200">
+	<div class="max-w-xl m-6 sm:mx-auto my-6 mb-12">
+		{%- if page.image == false -%}
+		<img src="/assets/photos/non.png" class="rounded-lg border-2 border-gray-800">
+		{%- else -%}
+		<img src="{{ page.image }}" class="rounded-lg border-2 border-gray-800">
+		{%- endif -%}
 
-  {%- if page.email -%}
-  <hr data-content=" email ">
-  <h1>Get notified about new posts</h1>
-  <div id="mc_embed_signup">
-    <form action="https://alecw.us7.list-manage.com/subscribe/post?u=90a98fc71fb460cf3977cddfa&amp;id=6eb40130f5"
-      method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank"
-      novalidate="">
-      <div id="mc_embed_signup_scroll">
 
-        <div class="mc-field-group">
-          <label for="mce-EMAIL" class="odin">Email Address <span class="text-red">*</span>
-          </label><br>
-          <input type="email" value="" name="EMAIL" class="required email width-full" id="mce-EMAIL"
-            placeholder="your@email.com">
-        </div>
-        <div id="mce-responses" class="clear">
-          <div class="response" id="mce-error-response" style="display:none"></div>
-          <div class="response" id="mce-success-response" style="display:none"></div>
-        </div>
-        <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
-            name="b_90a98fc71fb460cf3977cddfa_6eb40130f5" tabindex="-1" value=""></div>
-        <div class="pod-outer">
-          <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
-              class="button pod"></div>
-        </div>
-      </div>
-    </form>
-  </div>
-  {%- endif -%}
+		<div class="font-bold text-2xl hover:underline mt-6">
+			{%- if page.archived -%}
+			<span class="bg-blue-600 px-2 py-1 rounded-lg text-white text-lg mr-2">ARCHIVED</span>
+			{%- endif -%}{{ page.title }}</div>
 
-</article>
+		<p class="text-gray-500 text-sm">{{- page.date | date: site.theme_config.date_format -}}</p>
+
+		{{ content }}
+
+
+		<div class="break-words">
+			{%- for tag in page.tags -%}
+			<span class="bg-purple-600 px-2 py-1 rounded-lg text-white text-sm mr-2 inline-block my-0.5">{{ tag | replace: ",", "" | replace: "_", " " }}</span>
+			{%- endfor -%}
+		</div>
+		<br><br>
+	</div>
+</div>

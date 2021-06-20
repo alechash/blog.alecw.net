@@ -5,9 +5,8 @@ title: dear honda, please send me an s2000
 tags: car, honda, s2000, track car, track, racing, ap1, ap2, ap3
 email: true
 show_more: true
+image: /assets/photos/s2000_1.jpg
 ---
-
-![car](/assets/photos/s2000_1.jpg)
 
 # Are you even into cars?
 
@@ -44,4 +43,4 @@ Yes, there actually is, it is 300 miles from were I live though and I just haven
 
 ---
 
-![car](/assets/photos/s2000_2.jpg)
+<img class="rounded-lg border-2 border-gray-800 mt-12" src="/assets/photos/s2000_2.jpg" alt="car" title="car">

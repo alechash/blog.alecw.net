@@ -5,9 +5,8 @@ title: What Are Javascript Exports, And How Do You Create One?
 tags: modules, exports, module-exports, javascript, nodejs, module
 email: true
 show_more: true
+image: /assets/photos/exports.png
 ---
-
-![exports](/assets/photos/exports.png)
 
 # What are they?
 
@@ -42,7 +41,7 @@ Remember above, we had the `module.exports` with the name of the function? Well,
 
 ```javascript
 // note: you can call it whatever, it doesn't have to be 'config'
-const config = require('./functions');  // now we can call the above function through our config constant: 
+const config = require('./functions');  // now we can call the above function through our config constant:
 console.log(config.randomNumber()) // a random decimal
 ```
 

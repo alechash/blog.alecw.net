@@ -5,9 +5,8 @@ title: How people view FAANG vs. How People Should View Them
 tags: seinfeld, festivus, holiday, celebrate
 email: true
 show_more: true
+image: /assets/photos/faang.png
 ---
-
-![faang](/assets/photos/faang.png)
 
 Note, we won't actually talk about Netflix in this because at the moment, they aren't nearly as powerful as any of the other companies or in as many markets as the others.
 

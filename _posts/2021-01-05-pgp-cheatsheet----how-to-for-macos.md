@@ -5,9 +5,8 @@ title: PGP Cheatsheet -- How to For macOS
 tags: command-line, cli, pgp, gpg, encryption, signing
 email: true
 show_more: true
+image: /assets/photos/pgp.jpg
 ---
-
-![pgp](/assets/photos/pgp.jpg)
 
 Ok, I'm sure we have all heard of PGP but no one really understands it right? Yeah that's how I was until I actual researched it.
 
@@ -21,7 +20,7 @@ So, in easier terms, it is just a program that encrypts stuff.
 
 # PGP vs OpenPGP
 
-When discussing PGP these days we almost always mean OpenPGP. This is an open-source 100% compatible clone of the original PGP, which is now closed-source software owned by Symantec. 
+When discussing PGP these days we almost always mean OpenPGP. This is an open-source 100% compatible clone of the original PGP, which is now closed-source software owned by Symantec.
 
 Thanks to [Pro Privacy](https://proprivacy.com/) for this explanation.
 

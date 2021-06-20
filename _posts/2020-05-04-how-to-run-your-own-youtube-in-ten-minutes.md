@@ -6,9 +6,8 @@ tags: command-line, nodejs, express, video, media, nodetube, newtube, youtube, t
 archived: true
 email: true
 show_more: true
+image: /assets/photos/shareme.png
 ---
-
-![nodetube](/assets/photos/shareme.png)
 
 By this time, I am sure you have heard of NodeTube. The, in my opinion, the best YouTube alternative. In this tutorial I am going to show you guys how you can set up a NodeTube instance in less than 10 minutes! As you can see in the image, NodeTube is easy to customize with dark mode, media views, and so much more!
 

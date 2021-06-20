@@ -1,22 +1,15 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: "en" }}">
-{%- include head.html -%}
-
-<body a="{{ site.theme_config.appearance | default: "auto" }}">
-  <main class="page-content" aria-label="Content">
-    <div class="w">
-      {{ content }}
-
-      {%- if page.layout != 'post' -%}
-      <hr data-content=" stats ">
-      <p class="goatie">visits: <span id="goat">0</span></p>
-      {%- endif -%}
-    </div>
-  </main>
-
-  {%-if site.goat_counter-%}
-  {%-include goat_counter.html-%}
-  {%-endif-%}
-</body>
-
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  </head>
+  <body class="bg-black">
+    {%- include navbar.html -%}
+    {{ content }}
+    {%- include footer.html -%}
+  </body>
 </html>

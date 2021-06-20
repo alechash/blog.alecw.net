@@ -11,18 +11,26 @@
 {%-endif-%}
 
 {%- if posts.size > 0 -%}
-<ul>
+<div class="max-w-xl m-6 sm:m-auto text-white">
 	{%- for post in posts limit: include.limit -%}
-	<li>
-		<span>{{- post.date | date: site.theme_config.date_format -}}</span>
-		{%- if post.archived -%}
-		<span class="archived">ARCHIVED</span>
-		{%- endif -%}
-		<a href="{{ post.url | relative_url }}" class="pl-2">{{ post.title | downcase }}</a>
-	</li>
+	<a href="{{ post.url | relative_url }}">
+		<div class="mb-12">
+			{%- if post.image == false -%}
+			<img src="/assets/photos/non.png" class="rounded-lg border-2 border-gray-800">
+			{%- else -%}
+			<img src="{{ post.image }}" class="rounded-lg border-2 border-gray-800">
+			{%- endif -%}
+
+			{%- if post.archived -%}
+			<span class="bg-blue-600 px-2 py-1 rounded-lg text-white">ARCHIVED</span>
+			{%- endif -%}
+			<span class="font-bold text-2xl hover:underline">{{ post.title }}</span>
+			<p class="text-gray-500 text-sm">{{- post.date | date: site.theme_config.date_format -}}</p>
+		</div>
+	</a>
 	{%- endfor -%}
 	{%- if include.show_more and limit_exceeded -%}
-	<li><a href="{{ include.show_more_url }}">{{ include.show_more_text | default: "Show more..." }}</a></li>
+	<span class="text-blue-600 font-bold "><a href="{{ include.show_more_url }}">{{ include.show_more_text | default: "Show more..." }}</a></span>
 	{%- endif -%}
-</ul>
+</div>
 {%- endif -%}

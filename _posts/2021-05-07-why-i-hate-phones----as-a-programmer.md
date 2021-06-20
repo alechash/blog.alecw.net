@@ -5,9 +5,8 @@ title: why i hate phones -- as a programmer
 tags: phone, programmer, hate, opinion, why_i_hate_phones
 email: true
 show_more: true
+image: /assets/photos/phone.jpeg
 ---
-
-![phone](/assets/photos/phone.jpeg)
 
 There are obviously many reasons that people use there phone, they are useful and help people communicate. But, there is a limit of how far phone usage should go. I am going to talk about those, and share my opinion about that topic as a programmer.
 
