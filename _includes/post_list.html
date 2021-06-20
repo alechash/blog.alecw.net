@@ -12,6 +12,9 @@
 
 {%- if posts.size > 0 -%}
 <div class="max-w-xl m-6 sm:m-auto text-white">
+	{%- if include.show_more and limit_exceeded -%}
+	<div class="text-blue-600 hover:underline font-bold mb-8"><a href="{{ include.show_more_url }}">{{ include.show_more_text | default: "Show more..." }}</a></div>
+	{%- endif -%}
 	{%- for post in posts limit: include.limit -%}
 	<a href="{{ post.url | relative_url }}">
 		<div class="mb-12">
@@ -29,8 +32,5 @@
 		</div>
 	</a>
 	{%- endfor -%}
-	{%- if include.show_more and limit_exceeded -%}
-	<span class="text-blue-600 font-bold "><a href="{{ include.show_more_url }}">{{ include.show_more_text | default: "Show more..." }}</a></span>
-	{%- endif -%}
 </div>
 {%- endif -%}

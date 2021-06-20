@@ -7,8 +7,8 @@
 	],
 	"sourcesContent": [
 		"@import \"main\";\n",
-		"$backgroundColor: #ffffff;\n$bodyColor: #000000;\n$bodyFont: -apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\";\n\nbody {\n  background: $backgroundColor;\n  color: $bodyColor;\n  font-family: $bodyFont;\n}\n\nhr {\n  text-align: center;\n  border: 0;\n\n  &:before { content: '----' }\n  &:after { content: attr(data-content) '----' }\n}\n"
+		"$backgroundColor: #ffffff;\n$bodyColor: #000000;\n$bodyFont: -apple-system,BlinkMacSystemFont,\"Segoe UI\",Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\",\"Segoe UI Symbol\";\n\nbody {\n\tbackground: $backgroundColor;\n\tcolor: $bodyColor;\n\tfont-family: $bodyFont;\n}\n\nhr {\n\ttext-align: center;\n\tborder: 0;\n\n\t&:before {\n\t\tcontent: '----';\n\t}\n\n\t&:after {\n\t\tcontent: attr(data-content) '----';\n\t}\n}\n\n.hr_line {\n\tborder: 1px solid;\n\n\t&:before {\n\t\tcontent: '';\n\t}\n\n\t&:after {\n\t\tcontent: attr(data-content) '';\n\t}\n}\n"
 	],
 	"names": [],
-	"mappings": "ACIA,AAAA,IAAI,CAAC,EACH,UAAU,EALM,OAAO,EAMvB,KAAK,EALK,OAAO,EAMjB,WAAW,EALF,aAAa,EAAC,kBAAkB,EAAC,UAAU,EAAC,SAAS,EAAC,KAAK,EAAC,UAAU,EAAC,mBAAmB,EAAC,gBAAgB,EAAC,iBAAiB,GAMvI;;AAED,AAAA,EAAE,CAAC,EACD,UAAU,EAAE,MAAM,EAClB,MAAM,EAAE,CAAC,GAIV;;AAND,AAIE,EAJA,CAIE,MAAM,CAAC,EAAE,OAAO,EAAE,MAAO,GAAE;;AAJ/B,AAKE,EALA,CAKE,KAAK,CAAC,EAAE,OAAO,EAAE,kBAAkB,CAAC,MAAM,GAAG"
+	"mappings": "ACIA,AAAA,IAAI,CAAC,EACJ,UAAU,EALO,OAAO,EAMxB,KAAK,EALM,OAAO,EAMlB,WAAW,EALD,aAAa,EAAC,kBAAkB,EAAC,UAAU,EAAC,SAAS,EAAC,KAAK,EAAC,UAAU,EAAC,mBAAmB,EAAC,gBAAgB,EAAC,iBAAiB,GAMvI;;AAED,AAAA,EAAE,CAAC,EACF,UAAU,EAAE,MAAM,EAClB,MAAM,EAAE,CAAC,GAST;;AAXD,AAIC,EAJC,CAIC,MAAM,CAAC,EACR,OAAO,EAAE,MAAM,GACf;;AANF,AAQC,EARC,CAQC,KAAK,CAAC,EACP,OAAO,EAAE,kBAAkB,CAAC,MAAM,GAClC;;AAGF,AAAA,QAAQ,CAAC,EACR,MAAM,EAAE,SAAS,GASjB;;AAVD,AAGC,QAHO,CAGL,MAAM,CAAC,EACR,OAAO,EAAE,EAAE,GACX;;AALF,AAOC,QAPO,CAOL,KAAK,CAAC,EACP,OAAO,EAAE,kBAAkB,CAAC,EAAE,GAC9B"
 }

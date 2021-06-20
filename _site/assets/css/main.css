@@ -6,4 +6,10 @@ hr:before { content: '----'; }
 
 hr:after { content: attr(data-content) "----"; }
 
+.hr_line { border: 1px solid; }
+
+.hr_line:before { content: ''; }
+
+.hr_line:after { content: attr(data-content) ""; }
+
 /*# sourceMappingURL=main.css.map */
