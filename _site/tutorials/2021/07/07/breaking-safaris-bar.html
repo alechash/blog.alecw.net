@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Breaking Safari 15s Status Bar - Alecs Thoughts</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  </head>
+  <body class="bg-black"><nav class="bg-gray-800 p-6">
+	<h2 class="text-white text-2xl md:text-lg text-center md:text-left font-bold mb-6 md:mb-0"><a href="/">Alecs Thoughts</a></h2>
+	<div class="md:absolute text-center right-6 top-6 text-white">
+		<a href="https://github.com/alechash" class="font-bold hover:underline" target="_blank">GitHub</a>
+		<span class="text-purple-600 px-3">////</span>
+		<a href="https://alecw.net" class="font-bold hover:underline" target="_blank">Portfolio</a>
+		<span class="text-purple-600 px-3">////</span>
+		<a href="https://hackerone.com/alecw" class="font-bold hover:underline" target="_blank">HackerOne</a>
+	</div>
+</nav>
+<style>
+	html, address,
+	blockquote,
+	body, dd, div,
+	dl, dt, fieldset, form,
+	frame, frameset,
+	h1, h2, h3, h4,
+	h5, h6, noframes,
+	ol, p, ul, center,
+	dir, hr, menu, pre   { display: block; unicode-bidi: embed }
+	li              { display: list-item }
+	head            { display: none }
+	table           { display: table }
+	tr              { display: table-row }
+	thead           { display: table-header-group }
+	tbody           { display: table-row-group }
+	tfoot           { display: table-footer-group }
+	col             { display: table-column }
+	colgroup        { display: table-column-group }
+	td, th          { display: table-cell }
+	caption         { display: table-caption }
+	th              { font-weight: bolder; text-align: center }
+	caption         { text-align: center }
+	h1              { font-size: 2em }
+	h2              { font-size: 1.5em }
+	h3              { font-size: 1.17em }
+	h4, p,
+	blockquote, ul,
+	fieldset, form,
+	ol, dl, dir,
+	menu            { margin: 1.12em 0 }
+	h5              { font-size: .83em }
+	h6              { font-size: .75em }
+	h1, h2, h3, h4,
+	h5, h6, b,
+	strong          { font-weight: bolder }
+	blockquote      { margin-left: 40px; margin-right: 40px }
+	i, cite, em,
+	var, address    { font-style: italic }
+	pre, tt, code,
+	kbd, samp       { font-family: monospace }
+	pre             { white-space: pre }
+	button, textarea,
+	input, select   { display: inline-block }
+	big             { font-size: 1.17em }
+	small, sub, sup { font-size: .83em }
+	sub             { vertical-align: sub }
+	sup             { vertical-align: super }
+	table           { border-spacing: 2px; }
+	thead, tbody,
+	tfoot           { vertical-align: middle }
+	td, th, tr      { vertical-align: inherit }
+	s, strike, del  { text-decoration: line-through }
+	ol, ul, dir,
+	menu, dd        { margin-left: 40px }
+	ol              { list-style-type: decimal }
+	ol ul, ul ol,
+	ul ul, ol ol    { margin-top: 0; margin-bottom: 0 }
+	u, ins          { text-decoration: underline }
+	br:before       { content: "\A"; white-space: pre-line }
+	center          { text-align: center }
+
+	/* Begin bidirectionality settings (do not change) */
+	BDO[DIR="ltr"]  { direction: ltr; unicode-bidi: bidi-override }
+	BDO[DIR="rtl"]  { direction: rtl; unicode-bidi: bidi-override }
+
+	*[DIR="ltr"]    { direction: ltr; unicode-bidi: embed }
+	*[DIR="rtl"]    { direction: rtl; unicode-bidi: embed }
+
+	@media print {
+	  h1            { page-break-before: always }
+	  h1, h2, h3,
+	  h4, h5, h6    { page-break-after: avoid }
+	  ul, ol, dl    { page-break-before: avoid }
+	}
+
+	hr { padding:50px; padding-top: 15px; font-weight: bold; font-size: 20px }
+
+	pre { background: #262626; overflow: scroll; padding: 10px }
+</style>
+
+<div class="w-screen text-gray-200">
+	<div class="max-w-xl m-6 sm:mx-auto my-6 mb-12"><img src="/assets/photos/safari15.jpeg" class="rounded-lg border-2 border-gray-800"><div class="font-bold text-2xl hover:underline mt-6">Breaking Safari 15s Status Bar</div>
+
+		<p class="text-gray-500 text-sm">07-07-2021</p>
+
+		<p><em><strong>NOTE:</strong> This is being run in Safari 15 Beta, and macOS Monterey Beta, this bug (or feature) might be changed or fixed when you’re reading this.</em></p>
+
+<h3 id="the-bug">The Bug</h3>
+
+<p>With Safari 15 and macOS Monterey, you can change the color of the status bar using the <code class="language-plaintext highlighter-rouge">theme-color</code> META tag. The change of this META tag is not limited, therefore, we can change this however many times we want to. This could be very bad for the end user that might be on an older mac.</p>
+
+<h3 id="how-it-works">How it Works</h3>
+
+<p>Safari now lets you change the background color of the status bar. It only works if you’re color is dark enough though. This is for accessibility reading. By putting this in the <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code> tag, it will change the color of the status bar to green:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"theme-color"</span> <span class="na">content=</span><span class="s">"#059669"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<h3 id="bug-execution">Bug Execution</h3>
+
+<p>We can change this in an unlimited manner by using this JavaScript code:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">children</span><span class="p">.</span><span class="nx">namedItem</span><span class="p">(</span><span class="dl">'</span><span class="s1">theme-color</span><span class="dl">'</span><span class="p">).</span><span class="nx">content</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">#059669</span><span class="dl">'</span>
+	<span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nb">document</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">children</span><span class="p">.</span><span class="nx">namedItem</span><span class="p">(</span><span class="dl">'</span><span class="s1">theme-color</span><span class="dl">'</span><span class="p">).</span><span class="nx">content</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">#DC2626</span><span class="dl">'</span>
+	<span class="p">},</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">},</span> <span class="mi">6</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This will flash the color from green to red, to green, to red. This can be seen in the gif below:</p>
+
+<p><img src="/assets/photos/safari-bar-flashing.gif" alt="safari flashing bar" /></p>
+
+<h3 id="the-problem">The Problem</h3>
+
+<p>This could be a problem because a user might have an older computer that cant support the rendering of these images. Hopefully by the time Safari 15 and macOS Monterey are releases, this will be fixed.</p>
+
+
+
+		<div class="break-words"><span class="bg-purple-600 px-2 py-1 rounded-lg text-white text-sm mr-2 inline-block my-0.5">safari</span><span class="bg-purple-600 px-2 py-1 rounded-lg text-white text-sm mr-2 inline-block my-0.5">breaking</span><span class="bg-purple-600 px-2 py-1 rounded-lg text-white text-sm mr-2 inline-block my-0.5">safari-15</span><span class="bg-purple-600 px-2 py-1 rounded-lg text-white text-sm mr-2 inline-block my-0.5">bug</span><span class="bg-purple-600 px-2 py-1 rounded-lg text-white text-sm mr-2 inline-block my-0.5">flashing</span></div>
+		<br><br>
+	</div>
+</div>
+
+	<div class="fixed text-center right-6 bottom-6 text-white">
+		<a href="https://github.com/alechash" class="font-bold hover:underline" target="_blank">GitHub</a>
+		<span class="text-purple-600 px-3">////</span>
+		<a href="https://alecw.net" class="font-bold hover:underline" target="_blank">Portfolio</a>
+		<span class="text-purple-600 px-3">////</span>
+		<a href="https://hackerone.com/alecw" class="font-bold hover:underline" target="_blank">HackerOne</a>
+	</div>
+</body>
+</html>

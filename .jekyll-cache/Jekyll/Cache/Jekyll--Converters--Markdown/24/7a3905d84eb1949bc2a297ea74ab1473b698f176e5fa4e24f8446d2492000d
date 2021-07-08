@@ -1,0 +1,6 @@
+I"0<p><em><strong>NOTE:</strong> This is being run in Safari 15 Beta, and macOS Monterey Beta, this bug (or feature) might be changed or fixed when you’re reading this.</em></p>
+
+<h3 id="the-bug">The Bug</h3>
+
+<p>With Safari 15 and macOS Monterey, you can change the color of the status bar using the <code class="language-plaintext highlighter-rouge">theme-color</code> META tag. The change of this META tag is not limited, therefore, we can change this however many times we want to. This could be very bad for the end user that might be on an older mac.</p>
+:ET
