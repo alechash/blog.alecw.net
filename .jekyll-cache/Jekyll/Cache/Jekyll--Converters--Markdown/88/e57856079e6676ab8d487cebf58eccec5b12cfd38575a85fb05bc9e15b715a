@@ -1,0 +1,10 @@
+I"�<p>So, long story short, it only took me 34 minutes to not only reverse engineer Gettrs’ API, but also abuse it and get rate-limited.</p>
+
+<p>It wasnt that hard, what surprised me more though is the lack of a ratelimit. I created ~1000 posts in 1 minute and 30 seconds.</p>
+
+<p>BUT, guess what? It wasn’t even an API ratelimit, it was a CloudFlare rate-limit.</p>
+
+<p>You can see the ~1000 posts in the gif below.</p>
+
+<p><img src="/assets/photos/gettr.gif" alt="gettr spam gif" /></p>
+:ET
