@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
-    <title>{{ page.title }} - {{ site.title }}</title>
-    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-  </head>
-  <body class="bg-black">
-    {%- include navbar.html -%}
-    {{ content }}
-    {%- include footer.html -%}
-  </body>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<title>{{ page.title }} - {{ site.title }}</title>
+	<link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-black">
+	{%- include navbar.html -%}
+	{{ content }}
+	{%- include footer.html -%}
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-HCHE52NB4Y"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'G-HCHE52NB4Y');
+	</script>
+</body>
+
 </html>
