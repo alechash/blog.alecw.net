@@ -3,32 +3,187 @@ $bodyColor: #000000;
 $bodyFont: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 
 body {
-	background: $backgroundColor;
+	background-color: #1d1d1d;
 	color: $bodyColor;
 	font-family: $bodyFont;
 }
 
-hr {
-	text-align: center;
-	border: 0;
-
-	&:before {
-		content: '----';
-	}
-
-	&:after {
-		content: attr(data-content) '----';
-	}
+.background {
+	background-color: #1d1d1d;
+	margin: 0;
 }
 
-.hr_line {
-	border: 1px solid;
+.title_wrapper {
+	background-color: #1d1d1d;
+	text-align: center;
+	margin: 0;
+}
 
-	&:before {
-		content: '';
-	}
+.title {
+	background-color: #1d1d1d;
+	text-decoration: none;
+	margin: 0;
+	font-size: 70px;
+	transition: 0.3s;
+	font-weight: bolder;
+	margin: 30px 0;
+	color: rgb(179, 179, 179);
+}
 
-	&:after {
-		content: attr(data-content) '';
-	}
+.title:hover {
+	text-decoration: none;
+	color: rgb(190, 62, 62);
+}
+
+.menu_items_wrapper {
+	text-align: center;
+}
+
+.menu_items {
+	background: #131313;
+	padding: 15px;
+	border-radius: 15px;
+}
+
+.menu_item {
+	text-decoration: none;
+	color: rgb(179, 179, 179);
+}
+
+.menu_item:hover {
+	text-decoration: none;
+	color: rgb(48, 157, 232);
+}
+
+.menu_divider {
+	padding: 0 10px;
+	color: rgb(179, 179, 179);
+}
+
+.img_cover {
+	width: 100%;
+	border-radius: 20px;
+	border: 2px black solid
+}
+
+.actual_post_image {
+	display: block;
+	margin-top: 80px
+}
+
+.post {
+	max-width: 800px;
+	width: 80%;
+	margin: auto;
+}
+
+.post_list_wrapper {
+	max-width: 800px;
+	width: 80%;
+	margin: auto;
+}
+
+.post_list_include {
+	max-width: 800px;
+	width: 80%;
+	margin: auto;
+}
+
+.tag_archived {
+	background: red;
+	color: white;
+	padding: 5px 12px;
+	font-weight: bolder;
+	display: block;
+	border-radius: 5px;
+	margin: 7px 0;
+}
+
+.post_title {
+	margin-top: 15px;
+	margin-bottom: -20px;
+}
+
+.post_card {
+	padding: 40px;
+	border-radius: 20px;
+	transition: 0.3s;
+}
+
+.post_card:hover {
+	background: #1a1a1a;
+}
+
+.post_link_title {
+	padding: 12px;
+	transition: 0.3s;
+	border-radius: 5px;
+}
+
+.link_actual_title {
+	text-decoration: none;
+	color: blue;
+}
+
+.post_link_title:hover {
+	background: blue;
+	color: white;
+}
+
+.post_date_wrapper {
+	margin-top: 12px;
+	bottom: 12px;
+}
+
+.post_date {
+	background: #1a1a1a;
+	color: white;
+	padding: 6px;
+	transition: 0.3s;
+	border-radius: 5px;
+}
+
+.page_title {
+	color: white;
+	padding: 7px;
+	margin-top: 60px;
+	border-radius: 5px;
+	background: blue;
+}
+
+.tag_wrapper {
+	display: block;
+	margin-bottom: 20px;
+}
+
+.tag {
+	display: inline;
+	background: blue;
+	color: white;
+	margin: 6px;
+	padding: 5px;
+	border-radius: 4px;
+}
+
+.footer {
+	display: block;
+	position: fixed;
+	right: 16px;
+	bottom: 64px;
+}
+
+.show_more_wrapper {
+	margin-bottom: 15px
+}
+
+.show_more {
+	color: white;
+	background: black;
+	padding: 5px;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+body {
+	margin: 0;
 }

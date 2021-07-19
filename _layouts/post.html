@@ -31,7 +31,8 @@ layout: default
 	menu,
 	pre {
 		display: block;
-		unicode-bidi: embed
+		unicode-bidi: embed;
+		color: white;
 	}
 
 	li {
@@ -229,6 +230,12 @@ layout: default
 		text-decoration: underline
 	}
 
+	img {
+		width: 100%;
+		border-radius: 20px;
+		border: 2px black solid
+	}
+
 	br:before {
 		content: "\A";
 		white-space: pre-line
@@ -281,10 +288,12 @@ layout: default
 	}
 
 	hr {
-		padding: 50px;
-		padding-top: 15px;
-		font-weight: bold;
-		font-size: 20px
+		display: block;
+		border: 0;
+		border: 6px solid #222222;
+		width: 50%;
+		margin: 45px auto;
+		padding: 0;
 	}
 
 	pre {
@@ -294,34 +303,35 @@ layout: default
 	}
 </style>
 
-<div class="w-screen text-gray-200">
+<div class="post">
 	<div class="max-w-xl m-6 sm:mx-auto my-6 mb-12">
 		{%- if page.image == false -%}
-		<img src="/assets/photos/non.png" class="rounded-lg border-2 border-gray-800">
+		<img src="/assets/photos/non.png" class="img_cover actual_post_image">
 		{%- else -%}
-		<img src="{{ page.image }}" class="rounded-lg border-2 border-gray-800">
+		<img src="{{ page.image }}" class="img_cover actual_post_image">
 		{%- endif -%}
 
 
-		<div class="font-bold text-2xl hover:underline mt-6">
-			{%- if page.archived -%}
-			<span class="bg-blue-600 px-2 py-1 rounded-lg text-white text-lg mr-2">ARCHIVED</span>
-			{%- endif -%}{{ page.title }}
-		</div>
+		<h1>
+			{{ page.title }}
+		</h1>
+		{%- if page.archived -%}
+		<span class="tag_archived">ARCHIVED</span>
+		{%- endif -%}
 
 		<p class="text-gray-500 text-sm">{{- page.date | date: site.theme_config.date_format -}}</p>
 
 		{{ content }}
 
 
-		<div class="break-words">
-			<div class="font-bold text-2xl hover:underline mb-2">Tags</div>
+		<div class="tag_wrapper">
+			<h1>Tags</h1>
 			{%- for tag in page.tags -%}
-			<span class="bg-purple-600 px-2 py-1 rounded-lg text-white text-sm mr-2 inline-block my-0.5">{{ tag | replace: ",", "" | replace: "_", " " }}</span>
+			<div class="tag">{{ tag | replace: ",", "" | replace: "_", " " }}</div>
 			{%- endfor -%}
 		</div>
 		<br>
-		<div id="disqus_thread"></div>
+		<!--<div id="disqus_thread"></div>
 		<script>
 			/**
 			 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -340,6 +350,6 @@ layout: default
 				(d.head || d.body).appendChild(s);
 			})();
 		</script>
-		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>-->
 	</div>
 </div>

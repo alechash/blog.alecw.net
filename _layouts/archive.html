@@ -2,9 +2,23 @@
 layout: default
 ---
 
+<div class="post_list_include">
+	<div class="post_list_include">
+		<h2 class="page_title">
+			Post Archives
+		</h2>
+	</div>
 
-<h2 class="text-blue-600 font-bold text-4xl py-12 mb-0 pb-6 capitalize text-left max-w-xl mx-auto">
-	The Archive
-</h2>
+	{%
+        include post_list.html
+          category=page.which_category
+          limit=item.post_list.limit
+          show_more=item.post_list.show_more
+          show_more_text=item.post_list.show_more_text
+          show_more_url=item.post_list.show_more_url
+     -%}
 
-{%-include post_list.html category=page.which_category-%}
+	{%-if item.entries-%}
+	{%-include menu_item.html collection=page.which_category-%}
+	{%-endif-%}
+</div>

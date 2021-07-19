@@ -2,7 +2,7 @@
 # https://github.com/riggraz/no-style-please#customize-the-menu
 
 entries:
-  - title: latest posts
+  - title: Latest Posts
     post_list:
       show_more: true
       limit: 2
@@ -10,23 +10,23 @@ entries:
       show_more_url: archive.html
 
     entries:
-      - title: privacy posts
+      - title: Privacy Posts
         post_list:
           category: privacy
           limit: 1
-      - title: satire posts
+      - title: Satire Posts
         post_list:
           category: satire
           limit: 1
-      - title: tutorial posts
+      - title: Tutorial Posts
         post_list:
           category: tutorials
           limit: 1
-      - title: idea posts
+      - title: Idea Posts
         post_list:
           category: ideas
           limit: 1
-      - title: statement posts
+      - title: Statement Posts
         post_list:
           category: statements
           limit: 1
