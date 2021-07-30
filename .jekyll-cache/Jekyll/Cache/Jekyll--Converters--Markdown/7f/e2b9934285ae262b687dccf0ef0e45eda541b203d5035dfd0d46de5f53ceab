@@ -1,0 +1,99 @@
+I"�<p>Ok, I’m sure we have all heard of PGP but no one really understands it right? Yeah that’s how I was until I actual researched it.</p>
+
+<p>In this article we will only talk about macOS, although it is all the same across most systems, some commands might be off by a few words or flags.</p>
+
+<h1 id="explanation">Explanation</h1>
+
+<p>PGP or <a href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy">Pretty Good Privacy</a>, is just an encryption program that helps you cryptographically communicate and authenticate.</p>
+
+<p>So, in easier terms, it is just a program that encrypts stuff.</p>
+
+<h1 id="pgp-vs-openpgp">PGP vs OpenPGP</h1>
+
+<p>When discussing PGP these days we almost always mean OpenPGP. This is an open-source 100% compatible clone of the original PGP, which is now closed-source software owned by Symantec.</p>
+
+<p>Thanks to <a href="https://proprivacy.com/">Pro Privacy</a> for this explanation.</p>
+
+<h1 id="how-does-it-work">How does it work?</h1>
+
+<p>PGP works by generating two keys, these two keys are</p>
+
+<ul>
+  <li>the private key, only you know and should never be public</li>
+  <li>and the public key, anyone can know, not secret.</li>
+</ul>
+
+<p>Someone can take your public key and and encrypt a message using their command line and send it to you. Using your private key, you decrypt this message. And vice versa with the other persons key.</p>
+
+<h1 id="generating-your-key">Generating Your Key</h1>
+
+<p>First, you need to install PGP onto your computer,</p>
+
+<h3 id="installing">Installing</h3>
+
+<p>To install PGP on macOS, just run:</p>
+
+<p><code class="language-plaintext highlighter-rouge">brew install gpg pinentry-mac</code></p>
+
+<p>in Brew</p>
+
+<h3 id="setting-up-pgp">Setting up PGP</h3>
+
+<p><code class="language-plaintext highlighter-rouge">gpg --list-keys</code></p>
+
+<p>This will setup its file structure and install other necessary stuff.</p>
+
+<h3 id="creating-password">Creating Password</h3>
+
+<p>All you need to do is edit the <code class="language-plaintext highlighter-rouge">$HOME/.gnupg/gpg-agent.conf</code> file:</p>
+
+<p><code class="language-plaintext highlighter-rouge">echo \"pinentry-program /usr/local/bin/pinentry-mac\" &gt;&gt; $HOME/.gnupg/gpg-agent.conf</code></p>
+
+<p>This should prompt you with a popup asking for a password. Although it gives you the option to save in keychain, you shouldn’t for security reasons. You have to remember this password. So write it down or store it on a hard drive.</p>
+
+<h3 id="generating-keys">Generating Keys</h3>
+
+<p>You can generate a key using:</p>
+
+<p><code class="language-plaintext highlighter-rouge">gpg --expert --full-generate-key</code></p>
+
+<p>All the extra flags will cause it to prompt you with settings and input.</p>
+
+<p>When prompted for a key type, select <code class="language-plaintext highlighter-rouge">(8) RSA (set your own capabilities)</code></p>
+
+<p>Next, you want to toggle off sign and encrypt capabilities, to do this, type <code class="language-plaintext highlighter-rouge">s</code> and press <code class="language-plaintext highlighter-rouge">ENTER</code> when prompted to turn off signing abilities. Then, press <code class="language-plaintext highlighter-rouge">e</code> and press <code class="language-plaintext highlighter-rouge">ENTER</code> to turn off encrypt abilities. Lastly, press <code class="language-plaintext highlighter-rouge">q</code> to save this information.</p>
+
+<p>Now, when prompted for how long the key should be, you can type up to <code class="language-plaintext highlighter-rouge">4096</code>, that is the highest it currently goes. The longer the key, more secure it is. I recommend the max at <code class="language-plaintext highlighter-rouge">4096</code>.</p>
+
+<p>For expiration, I suggest picking <code class="language-plaintext highlighter-rouge">0</code> this means it will never expire.</p>
+
+<p>Next, to verify your identity, you should input your 100% real and legal name that your country knows you by. The same is with whatever email is your main email.</p>
+
+<p>If you’d like, you can also put a comment on the key, this isn’t required. So we suggest leaving it blank.</p>
+
+<p>If everything looks good, hit <code class="language-plaintext highlighter-rouge">o</code> for okay.</p>
+
+<p>After this, it will prompt you for a password, this is the password for the key. Keep this secure, long, and unique.</p>
+
+<h3 id="exporting-keys">Exporting Keys</h3>
+
+<p>To export your private key you can use:</p>
+
+<p><code class="language-plaintext highlighter-rouge">gpg --export-secret-keys --armor YOUR@EMAIL.COM &gt; YOUR@EMAIL.COM.private.gpg-key</code></p>
+
+<p>This key should NEVER leave you, this can be used to encrypt and decrypt secret messages.</p>
+
+<p>To export your public key you can use:</p>
+
+<p><code class="language-plaintext highlighter-rouge">gpg --export --armor YOUR@EMAIL.COM &gt; YOUR@EMAIL.COM.public.gpg-key</code></p>
+
+<p>This is public, people will use this to encrypt messages and send to you.</p>
+
+<h3 id="revocation-certificate">Revocation Certificate</h3>
+
+<p>Next, we will create a revocation certificate, this can be used to revoke the private key if it is ever compromised.</p>
+
+<p><code class="language-plaintext highlighter-rouge">gpg --output YOUR@EMAIL.COM.gpg-revocation-certificate --gen-revoke YOUR@EMAIL.COM</code></p>
+
+<p>This is how you can create and export PGP keys, if you have any trouble please comment and hopefully the community can help! You can also run <code class="language-plaintext highlighter-rouge">pgp --help</code> to get help on doing stuff with these keys!</p>
+:ET

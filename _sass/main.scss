@@ -122,7 +122,8 @@ body {
 
 .link_actual_title {
 	text-decoration: none;
-	color: blue;
+	color: white;
+	font-weight: bolder;
 }
 
 .post_link_title:hover {
@@ -147,6 +148,8 @@ body {
 	color: white;
 	padding: 7px;
 	margin-top: 60px;
+	margin-left: 40px;
+	margin-right: 40px;
 	border-radius: 5px;
 	background: blue;
 }

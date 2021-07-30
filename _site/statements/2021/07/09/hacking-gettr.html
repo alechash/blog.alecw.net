@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<title>It took me 34 minutes to reverse engineer Trumps' social medias internal API. - ALC;THGHT</title>
+	<link rel="stylesheet" href="/assets/css/main.css">
+	<!--<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">-->
+</head>
+
+<body class="bg-gray-900"><nav class="background">
+	<div class="title_wrapper">
+		<h2 class="title"><a class="title" href="/">ALC;THGHT</a></h2>
+	</div>
+	<div class="menu_items_wrapper">
+		<span class="menu_items">
+			<a href="https://github.com/alechash" class="menu_item" target="_blank">GitHub</a>
+			<span class="menu_divider">////</span>
+			<a href="https://alecw.net" class="menu_item" target="_blank">Portfolio</a>
+			<span class="menu_divider">////</span>
+			<a href="https://hackerone.com/alecw" class="menu_item" target="_blank">HackerOne</a>
+		</span>
+	</div>
+</nav><style>
+	html,
+	address,
+	blockquote,
+	body,
+	dd,
+	div,
+	dl,
+	dt,
+	fieldset,
+	form,
+	frame,
+	frameset,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	noframes,
+	ol,
+	p,
+	ul,
+	center,
+	dir,
+	hr,
+	menu,
+	pre {
+		display: block;
+		unicode-bidi: embed;
+		color: white;
+	}
+
+	li {
+		display: list-item
+	}
+
+	head {
+		display: none
+	}
+
+	table {
+		display: table
+	}
+
+	tr {
+		display: table-row
+	}
+
+	thead {
+		display: table-header-group
+	}
+
+	tbody {
+		display: table-row-group
+	}
+
+	tfoot {
+		display: table-footer-group
+	}
+
+	col {
+		display: table-column
+	}
+
+	colgroup {
+		display: table-column-group
+	}
+
+	td,
+	th {
+		display: table-cell
+	}
+
+	caption {
+		display: table-caption
+	}
+
+	th {
+		font-weight: bolder;
+		text-align: center
+	}
+
+	caption {
+		text-align: center
+	}
+
+	h1 {
+		font-size: 2em
+	}
+
+	h2 {
+		font-size: 1.5em
+	}
+
+	h3 {
+		font-size: 1.17em
+	}
+
+	h4,
+	p,
+	blockquote,
+	ul,
+	fieldset,
+	form,
+	ol,
+	dl,
+	dir,
+	menu {
+		margin: 1.12em 0
+	}
+
+	h5 {
+		font-size: .83em
+	}
+
+	h6 {
+		font-size: .75em
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	b,
+	strong {
+		font-weight: bolder
+	}
+
+	blockquote {
+		margin-left: 40px;
+		margin-right: 40px
+	}
+
+	i,
+	cite,
+	em,
+	var,
+	address {
+		font-style: italic
+	}
+
+	pre,
+	tt,
+	code,
+	kbd,
+	samp {
+		font-family: monospace
+	}
+
+	pre {
+		white-space: pre
+	}
+
+	button,
+	textarea,
+	input,
+	select {
+		display: inline-block
+	}
+
+	big {
+		font-size: 1.17em
+	}
+
+	small,
+	sub,
+	sup {
+		font-size: .83em
+	}
+
+	sub {
+		vertical-align: sub
+	}
+
+	sup {
+		vertical-align: super
+	}
+
+	table {
+		border-spacing: 2px;
+	}
+
+	thead,
+	tbody,
+	tfoot {
+		vertical-align: middle
+	}
+
+	td,
+	th,
+	tr {
+		vertical-align: inherit
+	}
+
+	s,
+	strike,
+	del {
+		text-decoration: line-through
+	}
+
+	ol,
+	ul,
+	dir,
+	menu,
+	dd {
+		margin-left: 40px
+	}
+
+	ol {
+		list-style-type: decimal
+	}
+
+	ol ul,
+	ul ol,
+	ul ul,
+	ol ol {
+		margin-top: 0;
+		margin-bottom: 0
+	}
+
+	u,
+	ins {
+		text-decoration: underline
+	}
+
+	img {
+		width: 100%;
+		border-radius: 20px;
+		border: 2px black solid
+	}
+
+	br:before {
+		content: "\A";
+		white-space: pre-line
+	}
+
+	center {
+		text-align: center
+	}
+
+	/* Begin bidirectionality settings (do not change) */
+	BDO[DIR="ltr"] {
+		direction: ltr;
+		unicode-bidi: bidi-override
+	}
+
+	BDO[DIR="rtl"] {
+		direction: rtl;
+		unicode-bidi: bidi-override
+	}
+
+	*[DIR="ltr"] {
+		direction: ltr;
+		unicode-bidi: embed
+	}
+
+	*[DIR="rtl"] {
+		direction: rtl;
+		unicode-bidi: embed
+	}
+
+	@media print {
+		h1 {
+			page-break-before: always
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			page-break-after: avoid
+		}
+
+		ul,
+		ol,
+		dl {
+			page-break-before: avoid
+		}
+	}
+
+	hr {
+		display: block;
+		border: 0;
+		border: 6px solid #222222;
+		width: 50%;
+		margin: 45px auto;
+		padding: 0;
+	}
+
+	pre {
+		background: #262626;
+		overflow: scroll;
+		padding: 10px
+	}
+</style>
+
+<div class="post">
+	<div class="max-w-xl m-6 sm:mx-auto my-6 mb-12"><img src="/assets/photos/gettr.jpeg" class="img_cover actual_post_image"><h1>
+			It took me 34 minutes to reverse engineer Trumps' social medias internal API.
+		</h1><p class="text-gray-500 text-sm">07-09-2021</p>
+
+		<p>So, long story short, it only took me 34 minutes to not only reverse engineer Gettrs’ API, but also abuse it and get rate-limited.</p>
+
+<p>It wasnt that hard, what surprised me more though is the lack of a ratelimit. I created ~1000 posts in 1 minute and 30 seconds.</p>
+
+<p>BUT, guess what? It wasn’t even an API ratelimit, it was a CloudFlare ratelimit.</p>
+
+<p>You can see the ~1000 posts in the gif below (the gif eventually ends, it took me 22 seconds to scroll through all of them).</p>
+
+<p><img src="/assets/photos/gettr.gif" alt="gettr spam gif" /></p>
+
+
+
+		<div class="tag_wrapper">
+			<h1>Tags</h1><div class="tag">hacking</div><div class="tag">spam</div><div class="tag">hackerone</div><div class="tag">trump</div><div class="tag">gettr</div><div class="tag">gettr-trump</div><div class="tag">trump-social-media</div><div class="tag">bug-bounty</div></div>
+		<br>
+		<!--<div id="disqus_thread"></div>
+		<script>
+			/**
+			 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+			 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+			/*
+			var disqus_config = function () {
+			this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+			this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			};
+			*/
+			(function() { // DON'T EDIT BELOW THIS LINE
+				var d = document,
+					s = d.createElement('script');
+				s.src = 'https://alechash.disqus.com/embed.js';
+				s.setAttribute('data-timestamp', +new Date());
+				(d.head || d.body).appendChild(s);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>-->
+	</div>
+</div><div class="footer">
+	<span class="menu_items">
+		<a href="https://github.com/alechash" class="menu_item" target="_blank">GitHub</a>
+		<span class="menu_divider">////</span>
+		<a href="https://alecw.net" class="menu_item" target="_blank">Portfolio</a>
+		<span class="menu_divider">////</span>
+		<a href="https://hackerone.com/alecw" class="menu_item" target="_blank">HackerOne</a>
+	</span>
+</div><!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+	<noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
+</body>
+
+</html>
