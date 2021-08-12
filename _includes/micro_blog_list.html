@@ -1,0 +1,27 @@
+{%-assign micros = site.categories['micros']-%}
+
+{%- if micros.size > 0 -%}
+<div class="micro_list_wrapper">
+	<div class="micro_list_subwrapper hide_scroll_bar">
+		{%- for micro in micros -%}
+		<div class="micro_card">
+			<div class="mb-12">
+				<div class="micro_body">
+					<div class="micro_date_wrapper">
+						<span class="micro_date">{{ micro.formattedDate }}</span>
+					</div>
+					<span class="micro_text_wrapper">
+						<span class="micro_text">{{ micro.text }}</span>
+					</span>
+				</div>
+				{%- if micro.image -%}
+				<img src="{{ micro.image }}" class="micro_img">
+				{%- endif -%}
+			</div>
+		</div>
+		{%- endfor -%}
+	</div>
+</div>
+{%- else -%}
+nothing
+{%- endif -%}

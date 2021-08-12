@@ -4,3 +4,8 @@ title: "ALC;THGHT" # the name of your site, e.g. ACME Corp.
 
 theme_config:
     date_format: "%m-%d-%Y"
+
+collections:
+  microblog:
+    output: true
+    permalink: microblog/:year/:month/:title/

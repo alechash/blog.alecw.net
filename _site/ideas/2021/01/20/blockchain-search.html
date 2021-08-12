@@ -110,15 +110,15 @@
 	}
 
 	h1 {
-		font-size: 2em
+		font-size: 2.15em
 	}
 
 	h2 {
-		font-size: 1.5em
+		font-size: 1.65em
 	}
 
 	h3 {
-		font-size: 1.17em
+		font-size: 1.32em
 	}
 
 	h4,
@@ -131,15 +131,15 @@
 	dl,
 	dir,
 	menu {
-		margin: 1.12em 0
+		margin: 1.27em 0
 	}
 
 	h5 {
-		font-size: .83em
+		font-size: .98em
 	}
 
 	h6 {
-		font-size: .75em
+		font-size: .90em
 	}
 
 	h1,
@@ -150,7 +150,9 @@
 	h6,
 	b,
 	strong {
-		font-weight: bolder
+		font-weight: bolder;
+		border-bottom: 3px #1a1a1a solid;
+		padding-bottom: 7px;
 	}
 
 	blockquote {
@@ -171,7 +173,7 @@
 	code,
 	kbd,
 	samp {
-		font-family: monospace
+		font-family: 'Times New Roman', serif;
 	}
 
 	pre {
@@ -225,8 +227,6 @@
 		text-decoration: line-through
 	}
 
-	ol,
-	ul,
 	dir,
 	menu,
 	dd {
@@ -297,7 +297,8 @@
 		h4,
 		h5,
 		h6 {
-			page-break-after: avoid
+			page-break-after: avoid;
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
 		}
 
 		ul,
@@ -321,6 +322,23 @@
 		overflow: scroll;
 		padding: 10px
 	}
+
+	#content {
+		font-family: 'Times New Roman', serif;
+		letter-spacing: 1px;
+		line-height: 25px;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		zoom: 125%;
+		page-break-after: avoid;
+		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+	}
 </style>
 
 <div class="post">
@@ -328,7 +346,8 @@
 			What About a Community Driven Search Engine?
 		</h1><p class="text-gray-500 text-sm">01-20-2021</p>
 
-		<p>As we all know, open-source and community-driven projects are starting to gain traction around the internet. The decentralized idea of the internet is also starting to happen and crypto prices are at an all time high. So why doesn’t a decentralized or community driven search engine exist yet?</p>
+		<div id="content">
+			<p>As we all know, open-source and community-driven projects are starting to gain traction around the internet. The decentralized idea of the internet is also starting to happen and crypto prices are at an all time high. So why doesn’t a decentralized or community driven search engine exist yet?</p>
 
 <h1 id="the-idea">The Idea</h1>
 
@@ -377,6 +396,7 @@
 
 <p>There are many reasons, including the fact that there are already a lot of search engines that people could choose from. Another reason is expenses. Or lack of community support.</p>
 
+		</div>
 
 
 		<div class="tag_wrapper">

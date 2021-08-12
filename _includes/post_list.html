@@ -16,6 +16,11 @@
 	<div class="show_more_wrapper"><a href="{{ include.show_more_url }}" class="show_more">{{ include.show_more_text | default: "Show more..." }}</a></div>
 	{%- endif -%}
 	{%- for post in posts limit: include.limit -%}
+
+	{%- if post.category == 'micros' -%}
+
+	{%- else -%}
+
 	<div class="post_card">
 		<a href="{{ post.url | relative_url }}" class="link_actual_title">
 			<div class="mb-12">
@@ -37,6 +42,7 @@
 			</div>
 		</a>
 	</div>
+	{%- endif -%}
 	{%- endfor -%}
 </div>
 {%- endif -%}
