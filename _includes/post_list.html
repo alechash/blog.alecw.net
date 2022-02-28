@@ -11,7 +11,7 @@
 {%-endif-%}
 
 {%- if posts.size > 0 -%}
-<div class="post_list_wrapper">
+<div class="post_list">
 	{%- if include.show_more and limit_exceeded -%}
 	<div class="show_more_wrapper"><a href="{{ include.show_more_url }}" class="show_more">{{ include.show_more_text | default: "Show more..." }}</a></div>
 	{%- endif -%}
@@ -32,7 +32,7 @@
 
 				<div class="post_title">
 					{%- if post.archived -%}
-					<span class="tag_archived">ARCHIVED</span>
+					<div class="tag_archived">ARCHIVED</div>
 					{%- endif -%}
 					<div class="post_link_title">{{ post.title }}</div>
 					<div class="post_date_wrapper">

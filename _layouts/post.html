@@ -3,6 +3,13 @@ layout: default
 ---
 
 <style>
+	@media (prefers-color-scheme: light) {
+		:root {
+			--background-color: #fff;
+			--text-color: #000;
+		}
+	}
+
 	html,
 	address,
 	blockquote,
@@ -32,7 +39,7 @@ layout: default
 	pre {
 		display: block;
 		unicode-bidi: embed;
-		color: white;
+		color: var(--text-color);
 	}
 
 	li {
