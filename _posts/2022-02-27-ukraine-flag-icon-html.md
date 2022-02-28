@@ -3,7 +3,6 @@ layout: post
 category: tutorials
 title: Creating a Ukrainian flag icon for your website to show support.
 tags: ukraine
-archived: true
 email: true
 show_more: true
 image: /assets/photos/ukraine.png
@@ -11,10 +10,14 @@ image: /assets/photos/ukraine.png
 
 This isnt going to be as much as a tutorial but more of just a "here is the code" type post, the code which is only CSS and HTML is very simple to understand.
 
+
+## HTML
 ```html
 <button class="button" onclick="window.location='https://ukraine.ua/news/stand-with-ukraine/'"></button>
 ```
 
+
+## CSS
 ```css
 .button {
     background: #005bbb;
